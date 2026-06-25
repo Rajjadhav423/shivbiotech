@@ -17,18 +17,20 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 z-0">
+        {/* Fallback gradient — shows only if images fail to load */}
+        <div className="absolute inset-0 bg-linear-to-br from-[#0a2e1a] via-[#0d3d20] to-[#1a5c35]" />
+        {/* Mobile portrait image — hidden on sm+ */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/hero-bg.jpg')`,
-          }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat sm:hidden"
+          style={{ backgroundImage: `url('/images/hero-bg-mobile.png')` }}
         />
-        {/* Fallback gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a2e1a] via-[#0d3d20] to-[#1a5c35]" />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-        {/* Pattern */}
-        <div className="absolute inset-0 hero-pattern opacity-30" />
+        {/* Desktop landscape image — hidden below sm */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden sm:block"
+          style={{ backgroundImage: `url('/images/hero-bg.png')` }}
+        />
+        {/* Semi-transparent overlay for text readability */}
+        <div className="absolute inset-0 bg-linear-to-b from-black/55 via-black/35 to-black/65" />
       </div>
 
       {/* Animated Leaves */}
