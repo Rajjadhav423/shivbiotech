@@ -3,12 +3,15 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Filter, Package, Leaf, Search } from 'lucide-react';
+import { ArrowRight, Filter, Package, Search } from 'lucide-react';
 import { products, productCategories } from '@/data/products';
-import SectionHeader from '@/components/ui/SectionHeader';
 import CtaSection from '@/components/sections/CtaSection';
+import { useLang } from '@/lib/i18n/LanguageContext';
+import { localizeBadge, localizeCategory } from '@/lib/i18n/productLocalization';
 
 export default function ProductsPage() {
+  const { tr } = useLang();
+  const productText = tr.products;
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -30,13 +33,13 @@ export default function ProductsPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 border border-white/20 text-white/80 text-sm mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-              18 Premium Products
+              {productText.heroBadge}
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Our <span className="text-accent">Bio-Solution</span> Range
+              {productText.pageTitle}<span className="text-accent">{productText.pageHighlight}</span>{productText.pageTitleSuffix}
             </h1>
             <p className="text-white/70 text-lg max-w-xl mx-auto">
-              From soil health to yield enhancement — scientific solutions for every crop need.
+              {productText.pageSubtitle}
             </p>
           </motion.div>
         </div>
@@ -51,7 +54,7 @@ export default function ProductsPage() {
               <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
-                placeholder="Search products..."
+                placeholder={productText.searchPlaceholder}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-gray-200 focus:border-primary focus:outline-none text-sm bg-gray-50 focus:bg-white transition-colors"
@@ -71,13 +74,13 @@ export default function ProductsPage() {
                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
                 >
-                  {cat}
+                  {cat === 'All' ? productText.all : localizeCategory(tr, cat)}
                 </button>
               ))}
             </div>
 
             <div className="text-sm text-gray-400 flex-shrink-0">
-              {filtered.length} product{filtered.length !== 1 ? 's' : ''}
+              {filtered.length} {filtered.length === 1 ? productText.productFound : productText.productsFound}
             </div>
           </div>
         </div>
@@ -95,8 +98,8 @@ export default function ProductsPage() {
                 className="text-center py-20"
               >
                 <div className="text-5xl mb-4">🌿</div>
-                <h3 className="font-semibold text-dark-navy mb-2">No products found</h3>
-                <p className="text-gray-500 text-sm">Try adjusting your search or filter.</p>
+                <h3 className="font-semibold text-dark-navy mb-2">{productText.noProductsTitle}</h3>
+                <p className="text-gray-500 text-sm">{productText.noProductsText}</p>
               </motion.div>
             ) : (
               <motion.div
@@ -123,7 +126,7 @@ export default function ProductsPage() {
                           </div>
                           {product.badge && (
                             <span className="absolute top-3 left-3 px-2.5 py-1 bg-primary text-white text-xs font-semibold rounded-full">
-                              {product.badge}
+                              {localizeBadge(tr, product.badge)}
                             </span>
                           )}
                         </div>
@@ -131,7 +134,7 @@ export default function ProductsPage() {
                         {/* Content */}
                         <div className="p-5 flex flex-col flex-1">
                           <span className="inline-block px-2 py-0.5 bg-primary-light text-primary text-xs font-medium rounded-full mb-2 self-start">
-                            {product.category}
+                            {localizeCategory(tr, product.category)}
                           </span>
                           <h3 className="font-bold text-dark-navy mb-1.5 group-hover:text-primary transition-colors">
                             {product.name}
@@ -145,7 +148,7 @@ export default function ProductsPage() {
                               <span className="text-xs text-gray-400">{product.packaging[0]}</span>
                             </div>
                             <div className="flex items-center gap-1 text-primary text-xs font-medium group-hover:gap-2 transition-all">
-                              View Details
+                              {productText.viewDetails}
                               <ArrowRight size={12} />
                             </div>
                           </div>

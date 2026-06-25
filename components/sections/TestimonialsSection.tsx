@@ -3,12 +3,12 @@
 import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
-import { testimonials } from '@/data/testimonials';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { useLang } from '@/lib/i18n/LanguageContext';
 
 export default function TestimonialsSection() {
   const { tr } = useLang();
+  const testimonials = tr.testimonials.items;
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
 
@@ -60,7 +60,7 @@ export default function TestimonialsSection() {
 
                   {/* Quote */}
                   <p className="text-dark-navy text-lg md:text-xl leading-relaxed font-medium mb-8 italic">
-                    "{testimonials[activeIndex].content}"
+                    &ldquo;{testimonials[activeIndex].content}&rdquo;
                   </p>
 
                   {/* Author */}

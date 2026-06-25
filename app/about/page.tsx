@@ -113,7 +113,7 @@ export default function AboutPage() {
               <div className="bg-gradient-to-br from-primary to-primary-dark rounded-3xl p-8 text-white relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
                 <div className="relative z-10">
-                  <div className="text-5xl font-bold text-white/20 leading-none mb-4">"</div>
+                  <div className="text-5xl font-bold text-white/20 leading-none mb-4">&ldquo;</div>
                   <p className="text-white/90 leading-relaxed text-base mb-6">
                     Agriculture is the backbone of our economy, and farmers are the backbone of agriculture.
                     When we established Shiv Biotech, our goal was simple but ambitious: provide scientific

@@ -20,7 +20,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const saved = localStorage.getItem('sb_lang') as Lang | null;
-    if (saved && t[saved]) setLangState(saved);
+    if (saved && t[saved]) {
+      queueMicrotask(() => setLangState(saved));
+    }
   }, []);
 
   const setLang = (l: Lang) => {
