@@ -6,23 +6,17 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Download, Globe, ChevronDown, Phone } from 'lucide-react';
+import { useLang } from '@/lib/i18n/LanguageContext';
+import type { Lang } from '@/lib/i18n/translations';
 
-const navItems = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Products', href: '/products' },
-  { label: 'Gallery', href: '/gallery' },
-  { label: 'Contact', href: '/contact' }
-];
-
-const languages = ['English', 'मराठी', 'हिंदी'];
+const languages: Lang[] = ['English', 'मराठी', 'हिंदी'];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
-  const [selectedLang, setSelectedLang] = useState('English');
   const pathname = usePathname();
+  const { lang, setLang, tr } = useLang();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -30,8 +24,15 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-
   const isHome = pathname === '/';
+
+  const navItems = [
+    { label: tr.nav.home, href: '/' },
+    { label: tr.nav.about, href: '/about' },
+    { label: tr.nav.products, href: '/products' },
+    { label: tr.nav.gallery, href: '/gallery' },
+    { label: tr.nav.contact, href: '/contact' },
+  ];
 
   return (
     <>
@@ -61,7 +62,7 @@ export default function Header() {
                 <div className={`text-xs leading-tight transition-colors ${
                   isScrolled || !isHome ? 'text-gray-500' : 'text-white/70'
                 }`}>
-                  Grow Together
+                  {tr.tagline}
                 </div>
               </div>
             </Link>
@@ -107,7 +108,7 @@ export default function Header() {
                   }`}
                 >
                   <Globe size={15} />
-                  <span>{selectedLang}</span>
+                  <span>{lang}</span>
                   <ChevronDown size={13} className={`transition-transform ${isLangOpen ? 'rotate-180' : ''}`} />
                 </button>
                 <AnimatePresence>
@@ -119,17 +120,17 @@ export default function Header() {
                       transition={{ duration: 0.15 }}
                       className="absolute right-0 top-full mt-2 w-36 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden"
                     >
-                      {languages.map((lang) => (
+                      {languages.map((l) => (
                         <button
-                          key={lang}
-                          onClick={() => { setSelectedLang(lang); setIsLangOpen(false); }}
+                          key={l}
+                          onClick={() => { setLang(l); setIsLangOpen(false); }}
                           className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
-                            selectedLang === lang
+                            lang === l
                               ? 'bg-primary-light text-primary font-medium'
                               : 'text-gray-700 hover:bg-gray-50'
                           }`}
                         >
-                          {lang}
+                          {l}
                         </button>
                       ))}
                     </motion.div>
@@ -159,7 +160,7 @@ export default function Header() {
                 className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-primary text-white hover:bg-primary-dark transition-all shadow-lg shadow-primary/30"
               >
                 <Download size={15} />
-                Brochure
+                {tr.nav.brochure}
               </motion.a>
             </div>
 
@@ -217,6 +218,22 @@ export default function Header() {
                   <X size={20} className="text-gray-600" />
                 </button>
               </div>
+
+              {/* Mobile Language Switcher */}
+              <div className="px-5 pt-4 pb-2 flex gap-2">
+                {languages.map((l) => (
+                  <button
+                    key={l}
+                    onClick={() => setLang(l)}
+                    className={`flex-1 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                      lang === l ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-primary-light'
+                    }`}
+                  >
+                    {l}
+                  </button>
+                ))}
+              </div>
+
               <nav className="p-5 flex flex-col gap-1">
                 {navItems.map((item, i) => (
                   <motion.div
@@ -253,7 +270,7 @@ export default function Header() {
                   className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-primary text-white font-semibold hover:bg-primary-dark transition-colors"
                 >
                   <Download size={16} />
-                  Download Brochure
+                  {tr.nav.brochure}
                 </a>
               </div>
             </motion.div>

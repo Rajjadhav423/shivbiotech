@@ -5,8 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
 import { testimonials } from '@/data/testimonials';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { useLang } from '@/lib/i18n/LanguageContext';
 
 export default function TestimonialsSection() {
+  const { tr } = useLang();
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
 
@@ -28,14 +30,14 @@ export default function TestimonialsSection() {
     <section className="section-padding bg-white overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          badge="Testimonials"
-          title="What "
-          highlight="Farmers Say"
-          subtitle="Real results from real farmers across Maharashtra who trust Shiv Biotech products."
+          badge={tr.testimonials.badge}
+          title={tr.testimonials.title}
+          highlight={tr.testimonials.highlight}
+          subtitle={tr.testimonials.subtitle}
         />
 
         <div className="relative">
-          <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-primary-light to-white border border-primary/10 shadow-xl shadow-primary/5">
+          <div className="overflow-hidden rounded-3xl bg-linear-to-br from-primary-light to-white border border-primary/10 shadow-xl shadow-primary/5">
             <div className="relative min-h-64 p-8 md:p-12">
               <Quote size={48} className="text-primary/15 absolute top-6 left-8" />
               <AnimatePresence custom={direction} mode="wait">

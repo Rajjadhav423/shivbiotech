@@ -5,16 +5,20 @@ import Link from 'next/link';
 import { ArrowRight, Package, Leaf } from 'lucide-react';
 import { featuredProducts } from '@/data/products';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { useLang } from '@/lib/i18n/LanguageContext';
 
 export default function ProductsPreview() {
+  const { tr } = useLang();
+  const { products } = tr;
+
   return (
     <section className="section-padding bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          badge="Our Products"
-          title="Premium Crop "
-          highlight="Bio-Solutions"
-          subtitle="Scientifically formulated biostimulants for every crop need — from soil health to yield enhancement."
+          badge={products.badge}
+          title={products.title}
+          highlight={products.highlight}
+          subtitle={products.subtitle}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -31,7 +35,7 @@ export default function ProductsPreview() {
               <Link href={`/products/${product.slug}`}>
                 <div className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary/20">
                   {/* Product Image */}
-                  <div className="relative h-52 bg-gradient-to-br from-primary-light to-green-100 overflow-hidden">
+                  <div className="relative h-52 bg-linear-to-br from-primary-light to-green-100 overflow-hidden">
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="text-7xl opacity-60 group-hover:scale-110 transition-transform duration-500">🌿</div>
                     </div>
@@ -56,8 +60,8 @@ export default function ProductsPreview() {
                           {product.name}
                         </h3>
                       </div>
-                      <div className="w-8 h-8 rounded-full bg-primary-light group-hover:bg-primary transition-colors flex items-center justify-center flex-shrink-0 mt-1">
-                        <ArrowRight size={14} className="text-primary group-hover:text-white transition-colors group-hover:translate-x-0.5 transition-transform" />
+                      <div className="w-8 h-8 rounded-full bg-primary-light group-hover:bg-primary transition-all flex items-center justify-center shrink-0 mt-1">
+                        <ArrowRight size={14} className="text-primary group-hover:text-white group-hover:translate-x-0.5 transition-all" />
                       </div>
                     </div>
                     <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-4">
@@ -66,7 +70,7 @@ export default function ProductsPreview() {
                     <div className="flex items-center gap-2">
                       <Package size={12} className="text-gray-400" />
                       <span className="text-xs text-gray-400">
-                        Available: {product.packaging.join(', ')}
+                        {products.available}: {product.packaging.join(', ')}
                       </span>
                     </div>
                   </div>
@@ -87,7 +91,7 @@ export default function ProductsPreview() {
               href="/products"
               className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary hover:bg-primary-dark text-white font-semibold transition-all duration-300 shadow-lg shadow-primary/30 group"
             >
-              View All 18 Products
+              {products.viewAll}
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
