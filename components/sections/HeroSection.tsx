@@ -19,6 +19,7 @@ const statColors = [
 export default function HeroSection() {
   const { tr } = useLang();
   const statLabels = [tr.hero.stats.products, tr.hero.stats.farmers, tr.hero.stats.research, tr.hero.stats.natural];
+  const titlePrefix = tr.hero.title1.trim();
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
@@ -67,9 +68,9 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
+          className="mx-auto max-w-6xl text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-[1.12] mb-7 [text-wrap:balance]"
         >
-          {tr.hero.title1}{' '}
+          {titlePrefix && <>{titlePrefix} </>}
           <span className="relative">
             <span className="text-accent">{tr.hero.title2}</span>{' '}
             <span className="text-white">{tr.hero.title3}</span>
@@ -86,7 +87,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg sm:text-xl md:text-2xl text-white/80 font-medium mb-4"
+          className="text-lg sm:text-xl md:text-2xl text-white/80 font-medium mb-5 [text-wrap:balance]"
         >
           {tr.hero.subtitle}
         </motion.p>
@@ -95,7 +96,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-base text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-base text-white/60 max-w-3xl mx-auto mb-10 leading-relaxed [text-wrap:balance]"
         >
           {tr.hero.desc}
         </motion.p>
