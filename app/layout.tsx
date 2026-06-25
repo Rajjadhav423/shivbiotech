@@ -77,9 +77,9 @@ export const metadata: Metadata = {
     }
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: [{ url: '/logo.png', type: 'image/png' }],
     shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png'
+    apple: '/logo.png'
   },
   manifest: '/manifest.json',
   verification: {

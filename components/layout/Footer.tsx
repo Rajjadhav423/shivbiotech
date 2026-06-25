@@ -1,16 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { MapPin, Phone, Mail, Globe, ArrowRight } from 'lucide-react';
-
-const LogoMark = ({ size = 44 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <rect width="44" height="44" rx="11" fill="#1F8A3B"/>
-    <path d="M22 35 L22 21" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-    <path d="M22 29 C22 29 14 27 13 19 C13 19 19 17 22 27Z" fill="#8BC34A"/>
-    <path d="M22 24 C22 24 30 22 31 14 C31 14 25 12 22 22Z" fill="white" fillOpacity="0.92"/>
-    <path d="M22 20 C21 17 20 13 22 11 C24 13 23 17 22 20Z" fill="#8BC34A"/>
-    <path d="M15 35 Q22 37 29 35" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.35"/>
-  </svg>
-);
 
 const quickLinks = [
   { label: 'Home', href: '/' },
@@ -40,7 +30,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-5">
-              <LogoMark size={40} />
+              <div className="relative w-10 h-10 bg-white rounded-xl p-1">
+                <Image src="/logo.png" alt="Shiv Biotech" fill className="object-contain p-0.5" sizes="40px" />
+              </div>
               <div>
                 <div className="font-bold text-lg text-white">Shiv Biotech</div>
                 <div className="text-xs text-white/50">Grow Together</div>
