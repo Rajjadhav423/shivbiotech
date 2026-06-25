@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     url: 'https://www.shivbiotech.in',
     siteName: 'Shiv Biotech',
     title: 'Shiv Biotech — Empowering Agriculture through Bio-Innovation',
-    description: 'High-performance eco-friendly biostimulants for sustainable agriculture. Innovate. Nurture. Sustain.',
+    description: 'High-performance eco-friendly biostimulants for sustainable agriculture. Grow Together.',
     images: [
       {
         url: '/og-image.png',
