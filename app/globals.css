@@ -1,26 +1,175 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-primary: #1F8A3B;
+  --color-primary-dark: #145A32;
+  --color-primary-light: #EAF8EE;
+  --color-accent: #8BC34A;
+  --color-dark-navy: #0F172A;
+  --color-grey: #F5F5F5;
+
+  --font-heading: var(--font-poppins, 'Poppins', sans-serif);
+  --font-body: var(--font-inter, 'Inter', sans-serif);
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/*
+  Element-level styles live in @layer base so that @layer utilities can override
+  them. This is the correct Tailwind v4 pattern — element rules in @layer base,
+  utility classes in @layer utilities (higher priority).
+*/
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    font-family: var(--font-inter, 'Inter', sans-serif);
+    color: #0F172A;
+    background: #ffffff;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-poppins, 'Poppins', sans-serif);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1F8A3B;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #145A32;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/*
+  LAYOUT GUARANTEE — Explicit unlayered definitions for the container utilities
+  used site-wide. Unlayered class selectors beat @layer utilities in the CSS
+  cascade, so these are guaranteed to apply regardless of PostCSS cache state.
+  Values match what Tailwind v4 generates, so no visual difference.
+*/
+.max-w-7xl { max-width: 80rem; }   /* 1280px */
+.max-w-6xl { max-width: 72rem; }   /* 1152px */
+.max-w-5xl { max-width: 64rem; }   /* 1024px */
+.max-w-4xl { max-width: 56rem; }   /*  896px */
+.max-w-3xl { max-width: 48rem; }   /*  768px */
+.max-w-2xl { max-width: 42rem; }   /*  672px */
+.max-w-xl  { max-width: 36rem; }   /*  576px */
+.max-w-lg  { max-width: 32rem; }   /*  512px */
+
+.mx-auto { margin-inline: auto; }
+
+/* Custom component styles */
+.gradient-text {
+  background: linear-gradient(135deg, #1F8A3B 0%, #8BC34A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-card-dark {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-pattern {
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(31, 138, 59, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 195, 74, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 60% 80%, rgba(20, 90, 50, 0.1) 0%, transparent 40%);
+}
+
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out infinite 2s;
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.leaf-sway {
+  animation: leaf-sway 4s ease-in-out infinite;
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.3) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes leaf-sway {
+  0%, 100% { transform: rotate(-5deg) translateY(0px); }
+  50% { transform: rotate(5deg) translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
