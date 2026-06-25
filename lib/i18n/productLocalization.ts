@@ -16,6 +16,10 @@ export function localizeBadge(tr: Translation, badge?: string) {
   return lookup(tr.products.badges, badge);
 }
 
+export function localizeProductDescription(tr: Translation, product: Product) {
+  return tr.products.catalogDescriptions[product.slug as keyof typeof tr.products.catalogDescriptions] ?? product.description;
+}
+
 export function localizeFeaturedProduct(tr: Translation, product: Product, index: number) {
   const featured = tr.products.featured[index];
 

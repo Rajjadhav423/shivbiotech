@@ -4,9 +4,11 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Globe, Send, CheckCircle, MessageCircle, Clock } from 'lucide-react';
 import AnimatedSection from '@/components/ui/AnimatedSection';
-import SectionHeader from '@/components/ui/SectionHeader';
+import { useLang } from '@/lib/i18n/LanguageContext';
 
 export default function ContactPage() {
+  const { tr } = useLang();
+  const contact = tr.contactPage;
   const [formState, setFormState] = useState({
     name: '',
     phone: '',
@@ -20,11 +22,11 @@ export default function ContactPage() {
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
-    if (!formState.name.trim()) newErrors.name = 'Name is required';
-    if (!formState.phone.trim()) newErrors.phone = 'Phone number is required';
-    else if (!/^\d{10}$/.test(formState.phone.replace(/\s/g, ''))) newErrors.phone = 'Enter a valid 10-digit phone number';
-    if (formState.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email)) newErrors.email = 'Enter a valid email address';
-    if (!formState.message.trim()) newErrors.message = 'Message is required';
+    if (!formState.name.trim()) newErrors.name = contact.errors.name;
+    if (!formState.phone.trim()) newErrors.phone = contact.errors.phone;
+    else if (!/^\d{10}$/.test(formState.phone.replace(/\s/g, ''))) newErrors.phone = contact.errors.phoneInvalid;
+    if (formState.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email)) newErrors.email = contact.errors.emailInvalid;
+    if (!formState.message.trim()) newErrors.message = contact.errors.message;
     return newErrors;
   };
 
@@ -62,13 +64,13 @@ export default function ContactPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 border border-white/20 text-white/80 text-sm mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-              Get In Touch
+              {contact.badge}
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Contact <span className="text-accent">Shiv Biotech</span>
+              {contact.title}<span className="text-accent">{contact.highlight}</span>
             </h1>
             <p className="text-white/70 text-lg max-w-xl mx-auto">
-              Have questions about our products? Our expert team is here to help.
+              {contact.subtitle}
             </p>
           </motion.div>
         </div>
@@ -81,29 +83,29 @@ export default function ContactPage() {
             {[
               {
                 icon: Phone,
-                title: 'Call Us',
+                title: contact.cards.call,
                 content: '+91 8007703991',
                 href: 'tel:8007703991',
                 color: 'bg-green-50 text-primary'
               },
               {
                 icon: Mail,
-                title: 'Email Us',
+                title: contact.cards.email,
                 content: 'shivbiotech96@gmail.com',
                 href: 'mailto:shivbiotech96@gmail.com',
                 color: 'bg-blue-50 text-blue-600'
               },
               {
                 icon: MapPin,
-                title: 'Our Address',
-                content: 'Satkund, Kannad, Sambhajinagar - 431103',
+                title: contact.cards.address,
+                content: contact.cards.addressShort,
                 href: 'https://maps.google.com',
                 color: 'bg-red-50 text-red-500'
               },
               {
                 icon: Clock,
-                title: 'Working Hours',
-                content: 'Mon - Sat: 9 AM to 6 PM',
+                title: contact.cards.hours,
+                content: contact.cards.hoursText,
                 href: null,
                 color: 'bg-amber-50 text-amber-600'
               }
@@ -135,8 +137,8 @@ export default function ContactPage() {
             {/* Contact Form */}
             <AnimatedSection direction="left">
               <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
-                <h2 className="text-2xl font-bold text-dark-navy mb-2">Send Us a Message</h2>
-                <p className="text-gray-500 text-sm mb-6">Fill in your details and we&apos;ll get back to you within 24 hours.</p>
+                <h2 className="text-2xl font-bold text-dark-navy mb-2">{contact.formTitle}</h2>
+                <p className="text-gray-500 text-sm mb-6">{contact.formSubtitle}</p>
 
                 {isSubmitted ? (
                   <motion.div
@@ -147,54 +149,54 @@ export default function ContactPage() {
                     <div className="w-16 h-16 rounded-full bg-primary-light flex items-center justify-center mx-auto mb-4">
                       <CheckCircle size={32} className="text-primary" />
                     </div>
-                    <h3 className="font-bold text-dark-navy text-xl mb-2">Message Sent!</h3>
+                    <h3 className="font-bold text-dark-navy text-xl mb-2">{contact.successTitle}</h3>
                     <p className="text-gray-500 text-sm mb-6">
-                      Thank you for reaching out. Our team will contact you within 24 hours.
+                      {contact.successText}
                     </p>
                     <button
                       onClick={() => { setIsSubmitted(false); setFormState({ name: '', phone: '', email: '', subject: '', message: '' }); }}
                       className="px-6 py-2.5 rounded-full bg-primary text-white text-sm font-medium hover:bg-primary-dark transition-colors"
                     >
-                      Send Another
+                      {contact.sendAnother}
                     </button>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                        <input type="text" name="name" value={formState.name} onChange={handleChange} placeholder="Your name" className={inputClass('name')} />
+                        <label className="block text-sm font-medium text-gray-700 mb-1">{contact.labels.name}</label>
+                        <input type="text" name="name" value={formState.name} onChange={handleChange} placeholder={contact.placeholders.name} className={inputClass('name')} />
                         {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
-                        <input type="tel" name="phone" value={formState.phone} onChange={handleChange} placeholder="10-digit number" className={inputClass('phone')} />
+                        <label className="block text-sm font-medium text-gray-700 mb-1">{contact.labels.phone}</label>
+                        <input type="tel" name="phone" value={formState.phone} onChange={handleChange} placeholder={contact.placeholders.phone} className={inputClass('phone')} />
                         {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                       </div>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                      <input type="email" name="email" value={formState.email} onChange={handleChange} placeholder="your@email.com (optional)" className={inputClass('email')} />
+                      <label className="block text-sm font-medium text-gray-700 mb-1">{contact.labels.email}</label>
+                      <input type="email" name="email" value={formState.email} onChange={handleChange} placeholder={contact.placeholders.email} className={inputClass('email')} />
                       {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">{contact.labels.subject}</label>
                       <select name="subject" value={formState.subject} onChange={handleChange} className={inputClass('subject')}>
-                        <option value="">Select a topic</option>
-                        <option value="product">Product Enquiry</option>
-                        <option value="dealer">Become a Dealer</option>
-                        <option value="technical">Technical Support</option>
-                        <option value="other">Other</option>
+                        <option value="">{contact.placeholders.subject}</option>
+                        <option value="product">{contact.subjects.product}</option>
+                        <option value="dealer">{contact.subjects.dealer}</option>
+                        <option value="technical">{contact.subjects.technical}</option>
+                        <option value="other">{contact.subjects.other}</option>
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Message *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">{contact.labels.message}</label>
                       <textarea
                         name="message"
                         value={formState.message}
                         onChange={handleChange}
                         rows={4}
-                        placeholder="Tell us how we can help you..."
+                        placeholder={contact.placeholders.message}
                         className={`${inputClass('message')} resize-none`}
                       />
                       {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
@@ -209,12 +211,12 @@ export default function ContactPage() {
                       {isSubmitting ? (
                         <>
                           <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          Sending...
+                          {contact.sending}
                         </>
                       ) : (
                         <>
                           <Send size={18} />
-                          Send Message
+                          {contact.send}
                         </>
                       )}
                     </motion.button>
@@ -231,8 +233,8 @@ export default function ContactPage() {
                   <div className="text-center">
                     <MapPin size={40} className="text-primary mx-auto mb-3" />
                     <p className="font-semibold text-dark-navy">Shiv Biotech</p>
-                    <p className="text-gray-500 text-sm">Satkund, Taluka Kannad</p>
-                    <p className="text-gray-500 text-sm">Chhatrapati Sambhajinagar, MH 431103</p>
+                    <p className="text-gray-500 text-sm">{contact.mapLine1}</p>
+                    <p className="text-gray-500 text-sm">{contact.mapLine2}</p>
                     <a
                       href="https://www.google.com/maps/search/Satkund+Kannad+Sambhajinagar"
                       target="_blank"
@@ -240,19 +242,19 @@ export default function ContactPage() {
                       className="inline-flex items-center gap-1.5 mt-3 px-4 py-2 rounded-full bg-primary text-white text-sm font-medium hover:bg-primary-dark transition-colors"
                     >
                       <MapPin size={14} />
-                      Open in Maps
+                      {contact.openMaps}
                     </a>
                   </div>
                 </div>
 
                 {/* Company Details */}
                 <div className="bg-dark-navy rounded-3xl p-6 text-white">
-                  <h3 className="font-bold text-white text-lg mb-4">Company Information</h3>
+                  <h3 className="font-bold text-white text-lg mb-4">{contact.companyTitle}</h3>
                   <div className="space-y-3">
                     <div className="flex items-start gap-3">
                       <MapPin size={16} className="text-accent flex-shrink-0 mt-0.5" />
                       <p className="text-white/70 text-sm">
-                        Satkund, Taluka Kannad, District Chhatrapati Sambhajinagar, Maharashtra - 431103
+                        {contact.fullAddress}
                       </p>
                     </div>
                     <div className="flex items-center gap-3">
@@ -285,8 +287,8 @@ export default function ContactPage() {
                     <MessageCircle size={22} className="text-white" />
                   </div>
                   <div>
-                    <p className="font-semibold text-dark-navy">Chat on WhatsApp</p>
-                    <p className="text-sm text-gray-500">Get instant responses from our team</p>
+                    <p className="font-semibold text-dark-navy">{contact.whatsappTitle}</p>
+                    <p className="text-sm text-gray-500">{contact.whatsappText}</p>
                   </div>
                 </a>
               </div>

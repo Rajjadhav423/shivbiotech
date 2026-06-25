@@ -7,7 +7,7 @@ import { ArrowRight, Filter, Package, Search } from 'lucide-react';
 import { products, productCategories } from '@/data/products';
 import CtaSection from '@/components/sections/CtaSection';
 import { useLang } from '@/lib/i18n/LanguageContext';
-import { localizeBadge, localizeCategory } from '@/lib/i18n/productLocalization';
+import { localizeBadge, localizeCategory, localizeProductDescription } from '@/lib/i18n/productLocalization';
 
 export default function ProductsPage() {
   const { tr } = useLang();
@@ -140,7 +140,7 @@ export default function ProductsPage() {
                             {product.name}
                           </h3>
                           <p className="text-gray-500 text-xs leading-relaxed flex-1 mb-3 line-clamp-2">
-                            {product.description}
+                            {localizeProductDescription(tr, product)}
                           </p>
                           <div className="flex items-center justify-between pt-3 border-t border-gray-100">
                             <div className="flex items-center gap-1.5">
