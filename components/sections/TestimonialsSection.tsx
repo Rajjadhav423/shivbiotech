@@ -39,7 +39,7 @@ export default function TestimonialsSection() {
         <div className="relative">
           <div className="overflow-hidden rounded-3xl bg-linear-to-br from-primary-light to-white border border-primary/10 shadow-xl shadow-primary/5">
             <div className="relative min-h-64 p-8 md:p-12">
-              <Quote size={48} className="text-primary/15 absolute top-6 left-8" />
+              <Quote size={48} className="text-primary/15 absolute top-6 left-8 hidden sm:block" />
               <AnimatePresence custom={direction} mode="wait">
                 <motion.div
                   key={activeIndex}
@@ -49,10 +49,10 @@ export default function TestimonialsSection() {
                   animate="center"
                   exit="exit"
                   transition={{ duration: 0.4, ease: 'easeInOut' }}
-                  className="relative z-10"
+                  className="relative z-10 sm:pt-2"
                 >
                   {/* Stars */}
-                  <div className="flex items-center gap-1 mb-6">
+                  <div className="flex items-center gap-1 mb-5">
                     {[...Array(testimonials[activeIndex].rating)].map((_, i) => (
                       <Star key={i} size={18} className="text-amber-400 fill-amber-400" />
                     ))}

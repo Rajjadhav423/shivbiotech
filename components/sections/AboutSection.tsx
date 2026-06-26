@@ -55,7 +55,7 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
-              className="absolute -bottom-6 -right-6 bg-primary rounded-2xl p-5 shadow-xl shadow-primary/30"
+              className="absolute -bottom-4 right-2 sm:-bottom-6 sm:-right-6 bg-primary rounded-2xl p-4 sm:p-5 shadow-xl shadow-primary/30"
             >
               <div className="text-3xl font-bold text-white">100%</div>
               <div className="text-white/80 text-sm font-medium">{about.badgeLabel}</div>
