@@ -7,7 +7,7 @@ import Counter from '@/components/ui/Counter';
 import { useLang } from '@/lib/i18n/LanguageContext';
 
 const statIcons = [Leaf, Users, FlaskConical, Award];
-const statValues = [18, 5000, 10, 100];
+const statValues = [16, 5000, 10, 100];
 const statSuffixes = ['+', '+', '+', '%'];
 const statColors = [
   'from-green-400 to-green-600',

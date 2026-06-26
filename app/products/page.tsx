@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Filter, Package, Search } from 'lucide-react';
 import { products, productCategories } from '@/data/products';
 import CtaSection from '@/components/sections/CtaSection';
@@ -120,12 +121,22 @@ export default function ProductsPage() {
                     <Link href={`/products/${product.slug}`}>
                       <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary/20 h-full flex flex-col">
                         {/* Image */}
-                        <div className="relative h-44 bg-gradient-to-br from-primary-light to-green-100">
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <span className="text-6xl opacity-60 group-hover:scale-110 transition-transform duration-500">🌿</span>
-                          </div>
+                        <div className="relative h-44 bg-gradient-to-br from-primary-light to-green-100 overflow-hidden">
+                          {product.image ? (
+                            <Image
+                              src={product.image}
+                              alt={product.name}
+                              fill
+                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                              className="object-contain p-3"
+                            />
+                          ) : (
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <span className="text-6xl opacity-60 group-hover:scale-110 transition-transform duration-500">🌿</span>
+                            </div>
+                          )}
                           {product.badge && (
-                            <span className="absolute top-3 left-3 px-2.5 py-1 bg-primary text-white text-xs font-semibold rounded-full">
+                            <span className="absolute top-3 left-3 px-2.5 py-1 bg-primary text-white text-xs font-semibold rounded-full z-10">
                               {localizeBadge(tr, product.badge)}
                             </span>
                           )}

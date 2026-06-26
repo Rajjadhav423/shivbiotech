@@ -1,11 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft, ArrowRight, CheckCircle, ChevronRight, Droplets, Leaf, MessageCircle, Package, Phone } from 'lucide-react';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import CtaSection from '@/components/sections/CtaSection';
 import { useLang } from '@/lib/i18n/LanguageContext';
-import { localizeBadge, localizeCategory } from '@/lib/i18n/productLocalization';
+import { localizeBadge, localizeCategory, localizeProductTagline, localizeProductLongDescription, localizeProductBenefits } from '@/lib/i18n/productLocalization';
 import type { Product } from '@/types';
 
 interface ProductDetailClientProps {
@@ -19,6 +20,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Produc
   const detailText = productText.detail;
   const category = localizeCategory(tr, product.category);
   const badge = localizeBadge(tr, product.badge);
+  const tagline = localizeProductTagline(tr, product);
+  const longDescription = localizeProductLongDescription(tr, product);
+  const benefits = localizeProductBenefits(tr, product);
 
   return (
     <div className="pt-24">
@@ -40,15 +44,25 @@ export default function ProductDetailClient({ product, relatedProducts }: Produc
             <AnimatedSection direction="left">
               <div className="relative">
                 <div className="relative h-96 bg-gradient-to-br from-primary-light via-green-50 to-emerald-100 rounded-3xl overflow-hidden shadow-xl">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-9xl opacity-50">🌿</span>
-                  </div>
+                  {product.image ? (
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-contain p-8"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-9xl opacity-50">🌿</span>
+                    </div>
+                  )}
                   {badge && (
-                    <div className="absolute top-5 left-5 px-4 py-1.5 bg-primary text-white text-sm font-semibold rounded-full shadow-lg">
+                    <div className="absolute top-5 left-5 px-4 py-1.5 bg-primary text-white text-sm font-semibold rounded-full shadow-lg z-10">
                       {badge}
                     </div>
                   )}
-                  <div className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/80 flex items-center justify-center shadow-md">
+                  <div className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/80 flex items-center justify-center shadow-md z-10">
                     <Leaf size={18} className="text-primary" />
                   </div>
                   <div className="absolute -bottom-8 -right-8 w-40 h-40 rounded-full bg-primary/10" />
@@ -73,10 +87,10 @@ export default function ProductDetailClient({ product, relatedProducts }: Produc
                     {category}
                   </span>
                   <h1 className="text-3xl md:text-4xl font-bold text-dark-navy mb-2">{product.name}</h1>
-                  <p className="text-primary font-medium">{product.tagline}</p>
+                  <p className="text-primary font-medium">{tagline}</p>
                 </div>
 
-                <p className="text-gray-600 leading-relaxed">{product.longDescription}</p>
+                <p className="text-gray-600 leading-relaxed">{longDescription}</p>
 
                 <div>
                   <h3 className="font-semibold text-dark-navy mb-3 flex items-center gap-2">
@@ -84,7 +98,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Produc
                     {detailText.keyBenefits}
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    {product.benefits.map((benefit, i) => (
+                    {benefits.map((benefit, i) => (
                       <div key={i} className="flex items-start gap-2 p-3 bg-primary-light rounded-xl">
                         <CheckCircle size={14} className="text-primary flex-shrink-0 mt-0.5" />
                         <span className="text-gray-700 text-sm">{benefit}</span>
@@ -154,8 +168,20 @@ export default function ProductDetailClient({ product, relatedProducts }: Produc
               {relatedProducts.map((related) => (
                 <Link key={related.id} href={`/products/${related.slug}`}>
                   <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-gray-100 hover:border-primary/20">
-                    <div className="h-36 bg-gradient-to-br from-primary-light to-green-100 flex items-center justify-center">
-                      <span className="text-5xl opacity-60 group-hover:scale-110 transition-transform duration-300">🌿</span>
+                    <div className="relative h-36 bg-linear-to-br from-primary-light to-green-100 overflow-hidden">
+                      {related.image ? (
+                        <Image
+                          src={related.image}
+                          alt={related.name}
+                          fill
+                          sizes="(max-width: 640px) 100vw, 33vw"
+                          className="object-contain p-3"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <span className="text-5xl opacity-60 group-hover:scale-110 transition-transform duration-300">🌿</span>
+                        </div>
+                      )}
                     </div>
                     <div className="p-4">
                       <span className="text-xs text-primary font-medium">{localizeCategory(tr, related.category)}</span>

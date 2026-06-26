@@ -11,7 +11,7 @@ const productLinks = [
   { label: 'Kavach', href: '/products/kavach' },
   { label: 'Myco-VAM', href: '/products/myco-vam' },
   { label: 'Shiv Amrut', href: '/products/shiv-amrut' },
-  { label: 'Bloom', href: '/products/bloom' },
+  { label: 'Sanjeevani', href: '/products/sanjeevani' },
 ];
 
 export default function Footer() {

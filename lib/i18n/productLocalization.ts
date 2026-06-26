@@ -20,6 +20,18 @@ export function localizeProductDescription(tr: Translation, product: Product) {
   return tr.products.catalogDescriptions[product.slug as keyof typeof tr.products.catalogDescriptions] ?? product.description;
 }
 
+export function localizeProductTagline(tr: Translation, product: Product) {
+  return tr.products.taglines[product.slug as keyof typeof tr.products.taglines] ?? product.tagline;
+}
+
+export function localizeProductLongDescription(tr: Translation, product: Product) {
+  return tr.products.longDescriptions[product.slug as keyof typeof tr.products.longDescriptions] ?? product.longDescription;
+}
+
+export function localizeProductBenefits(tr: Translation, product: Product) {
+  return tr.products.productBenefits[product.slug as keyof typeof tr.products.productBenefits] ?? product.benefits;
+}
+
 export function localizeFeaturedProduct(tr: Translation, product: Product, index: number) {
   const featured = tr.products.featured[index];
 

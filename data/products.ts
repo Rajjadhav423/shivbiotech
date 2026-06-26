@@ -21,7 +21,7 @@ export const products: Product[] = [
       spray: '2 to 3 ml per liter',
     },
     packaging: ['1 Liter'],
-    image: '/images/products/humex-plus.jpg',
+    image: '/images/products/Humex+.jpeg',
     badge: 'Bestseller',
     featured: true
   },
@@ -46,7 +46,7 @@ export const products: Product[] = [
       drip: '500 ml to 1 liter per acre'
     },
     packaging: ['1 Liter'],
-    image: '/images/products/matrix-9.jpg',
+    image: '/images/products/matrix.jpeg',
     featured: true
   },
   {
@@ -69,7 +69,7 @@ export const products: Product[] = [
       spray: '1 to 2.5 ml per liter'
     },
     packaging: ['100 ml', '200 ml', '500 ml'],
-    image: '/images/products/kavach.jpg',
+    image: '/images/products/kavach.jpeg',
     badge: 'New'
   },
   {
@@ -92,7 +92,7 @@ export const products: Product[] = [
       spray: '3 to 5 grams per liter'
     },
     packaging: ['1 Kg'],
-    image: '/images/products/myco-vam.jpg',
+    image: '/images/products/myco-vam.jpeg',
     featured: true
   },
   {
@@ -115,7 +115,7 @@ export const products: Product[] = [
       spray: '1 to 1.5 ml per liter'
     },
     packaging: ['100 ml', '250 ml', '500 ml'],
-    image: '/images/products/shield.jpg'
+    image: '/images/products/shield.jpeg'
   },
   {
     id: '6',
@@ -138,7 +138,7 @@ export const products: Product[] = [
       drip: '1 liter per acre'
     },
     packaging: ['1 Liter'],
-    image: '/images/products/soya-maxx.jpg',
+    image: '/images/products/soya-max.jpeg',
     badge: 'Crop Specific'
   },
   {
@@ -161,7 +161,7 @@ export const products: Product[] = [
       spray: '2 to 2.5 ml per liter'
     },
     packaging: ['100 ml', '250 ml', '500 ml'],
-    image: '/images/products/sudarshan.jpg'
+    image: '/images/products/sudarshan.jpeg'
   },
   {
     id: '8',
@@ -184,7 +184,7 @@ export const products: Product[] = [
       drip: '1 to 2 liters per acre'
     },
     packaging: ['1 Liter'],
-    image: '/images/products/armor.jpg',
+    image: '/images/products/armor.jpeg',
     featured: true
   },
   {
@@ -208,7 +208,7 @@ export const products: Product[] = [
       drip: '1 liter per acre'
     },
     packaging: ['1 Liter'],
-    image: '/images/products/brix-plus.jpg',
+    image: '/images/products/brix-plus.jpeg',
     badge: 'Crop Specific'
   },
   {
@@ -232,7 +232,7 @@ export const products: Product[] = [
       drip: '500 grams to 1 kg per acre'
     },
     packaging: ['500 gm'],
-    image: '/images/products/carbon-rich.jpg'
+    image: '/images/products/carbon-rich.jpeg'
   },
   {
     id: '11',
@@ -255,7 +255,7 @@ export const products: Product[] = [
       drip: '500 ml to 1 liter per acre'
     },
     packaging: ['1 Liter'],
-    image: '/images/products/glass-green.jpg',
+    image: '/images/products/gloss-green.jpeg',
     badge: 'Crop Specific'
   },
   {
@@ -279,7 +279,7 @@ export const products: Product[] = [
       drip: '1500 grams to 1 kg per acre'
     },
     packaging: ['500 gm', '1 Kg'],
-    image: '/images/products/humex.jpg'
+    image: '/images/products/Humex.jpeg'
   },
   {
     id: '13',
@@ -301,7 +301,7 @@ export const products: Product[] = [
       soil: '10 kg per acre'
     },
     packaging: ['10 Kg'],
-    image: '/images/products/shivshakti.jpg'
+    image: '/images/products/shiv-shakti.jpeg'
   },
   {
     id: '14',
@@ -324,7 +324,7 @@ export const products: Product[] = [
       drip: '1 liter per acre'
     },
     packaging: ['1 Liter'],
-    image: '/images/products/shiv-amrut.jpg',
+    image: '/images/products/shiv-amrut.jpeg',
     featured: true
   },
   {
@@ -348,7 +348,7 @@ export const products: Product[] = [
       drip: '1 to 2 liters per acre'
     },
     packaging: ['2 Liter', '5 Liter'],
-    image: '/images/products/sanjeevani.jpg'
+    image: '/images/products/sajnivini.jpeg'
   },
   {
     id: '16',
@@ -370,54 +370,8 @@ export const products: Product[] = [
       spray: '0.5 ml per liter'
     },
     packaging: ['100 ml', '250 ml'],
-    image: '/images/products/active-360.jpg'
+    image: '/images/products/ative-360.jpeg'
   },
-  {
-    id: '17',
-    slug: 'bloom',
-    name: 'Bloom',
-    category: 'Bio Stimulant',
-    tagline: 'Flower Special Bio-Stimulant',
-    description: 'A specially formulated bio-stimulant containing natural plant proteins that energizes crops, promotes flowering, and improves fruit setting.',
-    longDescription: 'Bloom Flower Special is a uniquely formulated bio-stimulant containing naturally available plant proteins. It provides the perfect energy boost for flowering and yield improvement. Bloom promotes rapid leaf expansion and generous flowering, resulting in abundant and quality fruit production. It can be sprayed alongside other pesticides and fungicides, making it a versatile addition to any crop management program.',
-    benefits: [
-      'Dramatically promotes flowering',
-      'Contains natural plant proteins',
-      'Improves fruit set and quality',
-      'Promotes rapid leaf expansion',
-      'Compatible with other pesticides',
-      'Noticeable yield improvement'
-    ],
-    dosage: {
-      spray: '1 to 2 ml per liter'
-    },
-    packaging: ['100 ml', '250 ml', '500 ml'],
-    image: '/images/products/bloom.jpg',
-    badge: 'Popular',
-    featured: true
-  },
-  {
-    id: '18',
-    slug: 'fix',
-    name: 'Fix',
-    category: 'Bio Stimulant',
-    tagline: 'Flower & Fruit Setting Bio-Stimulant',
-    description: 'A bio-stimulant that helps flowers and fruits set properly by improving pollen viability, reducing premature dropping, and enhancing cell division.',
-    longDescription: 'Fix is a specialized bio-stimulant designed to improve flower and fruit setting. It works by increasing pollen viability, reducing premature flower and fruit drop, and enhancing cell division in reproductive structures. Fix is particularly effective when sprayed before flowering and during initial fruiting stages, significantly improving commercial crop output and quality.',
-    benefits: [
-      'Improves pollen viability',
-      'Reduces premature flower and fruit drop',
-      'Enhances cell division in flowers',
-      'Improves commercial crop output',
-      'Best applied before flowering stage',
-      'Increases fruit weight and quality'
-    ],
-    dosage: {
-      spray: '1 to 2 ml per liter'
-    },
-    packaging: ['100 ml', '250 ml', '500 ml'],
-    image: '/images/products/fix.jpg'
-  }
 ];
 
 export const featuredProducts = products.filter(p => p.featured);

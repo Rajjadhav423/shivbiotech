@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Package, Leaf } from 'lucide-react';
 import { featuredProducts } from '@/data/products';
 import SectionHeader from '@/components/ui/SectionHeader';
@@ -40,15 +41,25 @@ export default function ProductsPreview() {
                   <div className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary/20">
                     {/* Product Image */}
                     <div className="relative h-52 bg-linear-to-br from-primary-light to-green-100 overflow-hidden">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-7xl opacity-60 group-hover:scale-110 transition-transform duration-500">🌿</div>
-                      </div>
+                      {product.image ? (
+                        <Image
+                          src={product.image}
+                          alt={product.name}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-contain p-4"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-7xl opacity-60 group-hover:scale-110 transition-transform duration-500">🌿</div>
+                        </div>
+                      )}
                       {localized.badge && (
-                        <div className="absolute top-4 left-4 px-3 py-1 bg-primary text-white text-xs font-semibold rounded-full">
+                        <div className="absolute top-4 left-4 px-3 py-1 bg-primary text-white text-xs font-semibold rounded-full z-10">
                           {localized.badge}
                         </div>
                       )}
-                      <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/80 flex items-center justify-center">
+                      <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/80 flex items-center justify-center z-10">
                         <Leaf size={14} className="text-primary" />
                       </div>
                     </div>
