@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { CheckCircle, Quote, ArrowRight } from 'lucide-react';
@@ -109,29 +110,47 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Director Message Card */}
+        {/* Director Message Card — CodeHelp-style portrait + quote */}
         <AnimatedSection className="mt-20">
-          <div className="relative bg-linear-to-br from-primary to-primary-dark rounded-3xl p-8 md:p-12 overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
-            <div className="relative z-10 flex flex-col md:flex-row items-start gap-8">
-              <div className="shrink-0">
-                <Quote size={56} className="text-white/20" />
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ background: 'linear-gradient(135deg, #071e0f 0%, #0d3d20 45%, #0a3018 100%)' }}>
+            <div className="flex flex-col md:flex-row min-h-[360px] md:min-h-[420px]">
+
+              {/* Left — photo with spotlight glow */}
+              <div className="relative md:w-5/12 flex items-end justify-center pt-10 overflow-hidden">
+                {/* Radial spotlight behind the person */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_90%,rgba(74,222,128,0.18)_0%,transparent_70%)]" />
+                {/* Bottom fade so photo blends into card */}
+                <div className="absolute bottom-0 inset-x-0 h-28 bg-[linear-gradient(to_top,#0d3d20,transparent)] z-10" />
+                <div className="relative z-0 w-44 sm:w-52 md:w-64 self-end mx-auto">
+                  <Image
+                    src="/images/owner.jpeg"
+                    alt="Rohidas V Rathod"
+                    width={320}
+                    height={400}
+                    className="w-full object-cover object-top rounded-t-2xl"
+                    priority
+                  />
+                </div>
               </div>
-              <div>
-                <blockquote className="text-white text-lg md:text-xl leading-relaxed font-medium mb-6 italic">
+
+              {/* Right — quote content */}
+              <div className="relative md:w-7/12 flex flex-col justify-center px-8 py-10 md:px-14 md:py-14">
+                {/* Subtle decorative orb */}
+                <div className="absolute top-0 right-0 w-56 h-56 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+                <Quote size={52} className="text-white/15 mb-5 shrink-0" />
+                <blockquote className="text-white/90 text-base sm:text-lg md:text-xl leading-relaxed font-medium mb-8 italic">
                   {about.directorQuote}
                 </blockquote>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-2xl font-bold text-white">
-                    R
-                  </div>
+                <div className="flex items-center gap-4 pt-6 border-t border-white/20">
+                  <div className="w-1 h-12 rounded-full bg-accent shrink-0" />
                   <div>
-                    <div className="text-white font-semibold">Rohidas V Rathod</div>
-                    <div className="text-white/60 text-sm">{about.directorTitle}</div>
+                    <div className="text-white font-bold text-lg leading-tight">Rohidas V Rathod</div>
+                    <div className="text-accent text-sm font-medium mt-0.5">{about.directorTitle}</div>
+                    <div className="text-white/40 text-xs mt-1">Shiv Biotech</div>
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </AnimatedSection>

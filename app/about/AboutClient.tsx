@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { CheckCircle, Eye, FlaskConical, Heart, Leaf, Target, Users } from 'lucide-react';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import SectionHeader from '@/components/ui/SectionHeader';
@@ -68,23 +69,39 @@ export default function AboutClient() {
             </div>
 
             <AnimatedSection direction="right" delay={0.2}>
-              <div className="bg-gradient-to-br from-primary to-primary-dark rounded-3xl p-8 text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-                <div className="relative z-10">
-                  <div className="text-5xl font-bold text-white/20 leading-none mb-4">&ldquo;</div>
-                  {about.directorQuoteParts.map((part) => (
-                    <p key={part} className="text-white/80 leading-relaxed text-sm mb-6 first:text-white/90 first:text-base">
-                      {part}
-                    </p>
-                  ))}
-                  <div className="flex items-center gap-4 pt-6 border-t border-white/20">
-                    <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-xl font-bold">
-                      R
+              <div className="rounded-3xl overflow-hidden text-white relative shadow-xl" style={{ background: 'linear-gradient(135deg, #071e0f 0%, #0d3d20 45%, #0a3018 100%)' }}>
+                <div className="flex flex-col sm:flex-row">
+                  {/* Photo column with spotlight */}
+                  <div className="relative sm:w-2/5 flex items-end justify-center pt-8 overflow-hidden shrink-0">
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_65%_at_50%_90%,rgba(74,222,128,0.18)_0%,transparent_70%)]" />
+                    <div className="absolute bottom-0 inset-x-0 h-20 bg-[linear-gradient(to_top,#0d3d20,transparent)] z-10" />
+                    <div className="relative z-0 w-36 sm:w-full self-end mx-auto max-w-40">
+                      <Image
+                        src="/images/owner.jpeg"
+                        alt="Rohidas V Rathod"
+                        width={200}
+                        height={260}
+                        className="w-full object-cover object-top rounded-t-2xl"
+                      />
                     </div>
-                    <div>
-                      <div className="font-bold text-white">Rohidas V Rathod</div>
-                      <div className="text-white/60 text-sm">{about.directorTitle}</div>
-                      <div className="text-accent text-xs mt-0.5">{about.warmRegards}</div>
+                  </div>
+
+                  {/* Quote column */}
+                  <div className="relative sm:w-3/5 flex flex-col justify-center p-6 sm:p-7">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+                    <div className="text-4xl font-bold text-white/20 leading-none mb-3">&ldquo;</div>
+                    {about.directorQuoteParts.map((part) => (
+                      <p key={part} className="text-white/80 leading-relaxed text-sm mb-4 first:text-white/90 first:text-[0.9rem]">
+                        {part}
+                      </p>
+                    ))}
+                    <div className="flex items-center gap-3 pt-5 border-t border-white/20 mt-2">
+                      <div className="w-1 h-10 rounded-full bg-accent shrink-0" />
+                      <div>
+                        <div className="font-bold text-white text-sm">Rohidas V Rathod</div>
+                        <div className="text-white/60 text-xs mt-0.5">{about.directorTitle}</div>
+                        <div className="text-accent text-xs mt-0.5">{about.warmRegards}</div>
+                      </div>
                     </div>
                   </div>
                 </div>
