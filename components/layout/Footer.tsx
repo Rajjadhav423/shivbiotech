@@ -35,7 +35,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-5">
-              <div className="relative w-10 h-10 bg-white rounded-xl p-1">
+              <div className="relative w-10 h-10  p-1">
                 <Image src="/logo.png" alt="Shiv Biotech" fill className="object-contain p-0.5" sizes="40px" />
               </div>
               <div>
