@@ -351,6 +351,30 @@ export const products: Product[] = [
     image: '/images/products/sajnivini.jpeg'
   },
   {
+    id: '19',
+    slug: 'humex-plus-granule',
+    name: 'HumeX+ Granule',
+    category: 'Soil Amendment',
+    tagline: 'Gazette-Approved Humic & Fulvic Acid Granule Formulation',
+    description: 'A granular mixture of Humic acid and Fulvic acid approved under Government of India Gazette Notification CG-DL-E-14082025-265414, ideal for soil application.',
+    longDescription: 'HumeX+ Granule is a premium granular formulation combining Humic acid and Fulvic acid, registered under Government of India Extraordinary Gazette Notification dated 13/08/2025. The granule format allows for slow and uniform release of humic and fulvic acids into the soil, ensuring long-lasting improvement in soil structure, organic carbon levels, and nutrient availability. It enhances root development, improves cation exchange capacity, and supports sustainable crop productivity.',
+    benefits: [
+      'Gazette-approved formulation (CG-DL-E-14082025-265414)',
+      'Granule format for slow, uniform soil release',
+      'Improves soil organic carbon and structure',
+      'Enhances cation exchange capacity (CEC)',
+      'Stimulates root development and proliferation',
+      'Long-lasting soil health improvement'
+    ],
+    dosage: {
+      soil: '10 kg per acre as soil application'
+    },
+    packaging: ['10 Kg'],
+    image: '/images/gallery/fulvic.png',
+    badge: 'Gazette Approved',
+    gazetteNo: 'CG-DL-E-14082025-265414 | 13/08/2025',
+  },
+  {
     id: '18',
     slug: 'humex-76',
     name: 'HumeX 76%',
