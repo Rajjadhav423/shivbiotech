@@ -351,6 +351,31 @@ export const products: Product[] = [
     image: '/images/products/sajnivini.jpeg'
   },
   {
+    id: '18',
+    slug: 'humex-76',
+    name: 'HumeX 76%',
+    category: 'Soil Amendment',
+    tagline: 'Gazette-Approved Humic & Fulvic Acid 76% Formulation',
+    description: 'A premium humic and fulvic acid formulation with 76% active content, approved under Government of India Gazette Notification CG-DL-E-28052025-263422.',
+    longDescription: 'HumeX 76% is a high-concentration humic and fulvic acid product registered under Government of India Extraordinary Gazette Notification dated 26/05/2025. With a combined active content of 76%, it delivers superior soil conditioning and nutrient mobilization compared to standard humic acid products. The synergistic blend of humic and fulvic acids enhances soil porosity, stimulates root proliferation, and makes locked soil nutrients readily available to crops.',
+    benefits: [
+      'Gazette-approved formulation (CG-DL-E-28052025-263422)',
+      '76% combined humic & fulvic acid content',
+      'Superior soil conditioning and nutrient mobilization',
+      'Enhances root proliferation and soil porosity',
+      'Unlocks soil-bound nutrients for plant uptake',
+      'Improves water retention and soil structure'
+    ],
+    dosage: {
+      spray: '1 to 2 grams per liter',
+      drip: '500 grams to 1 kg per acre'
+    },
+    packaging: ['500 gm', '1 Kg'],
+    image: '/images/gallery/Humex.png',
+    badge: 'Gazette Approved',
+    gazetteNo: 'CG-DL-E-28052025-263422 | 26/05/2025',
+  },
+  {
     id: '17',
     slug: 'shiv-shakti-granule',
     name: 'Shiv Shakti Granule',
