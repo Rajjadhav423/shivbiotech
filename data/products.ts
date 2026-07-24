@@ -351,6 +351,46 @@ export const products: Product[] = [
     image: '/images/products/sajnivini.jpeg'
   },
   {
+    id: '17',
+    slug: 'shiv-shakti-granule',
+    name: 'Shiv Shakti Granule',
+    category: 'Soil Amendment',
+    tagline: 'Gazette-Approved Seaweed & Humic Acid Granule',
+    description: 'A granular formulation of Seaweed (Ascophyllum nodosum) extract and Humic acid (Leonardite) approved under Government of India Gazette Notification CG-DL-E-14082025-265414.',
+    longDescription: 'Shiv Shakti Granule is a premium soil amendment product combining Seaweed extract (Ascophyllum nodosum) and Humic acid sourced from Leonardite. Registered under Government of India Extraordinary Gazette Notification dated 13/08/2025, this granule formulation improves soil organic carbon, enhances root activity, and boosts crop yield for Paddy and Potato. The unique combination of seaweed-derived alginic acid and humic carbon creates a synergistic effect that unlocks soil nutrients and stimulates natural plant growth hormones.',
+    benefits: [
+      'Gazette-approved formulation (CG-DL-E-14082025-265414)',
+      'Seaweed extract boosts natural growth hormones',
+      'Humic acid from Leonardite improves soil carbon',
+      'Alginic acid enhances root absorption',
+      'Improves soil structure and water retention',
+      'Recommended for Paddy and Potato crops'
+    ],
+    dosage: {
+      soil: '10 kg per hectare — one soil application for Paddy and Potato'
+    },
+    packaging: ['10 Kg'],
+    image: '/images/gallery/Humic.png',
+    badge: 'Gazette Approved',
+    gazetteNo: 'CG-DL-E-14082025-265414 | 13/08/2025',
+    composition: [
+      { sno: '(i)',   ingredient: 'Seaweed (Ascophyllum nodosum) extract per cent. by weight, minimum', content: '5' },
+      { sno: '(ii)',  ingredient: 'Humic acid (Source: Leonardite) per cent. by weight, minimum',       content: '2' },
+      { sno: '(iii)', ingredient: 'Polysorbate 80 per cent. by weight, minimum',                        content: '1' },
+      { sno: '(iv)',  ingredient: 'Xanthum gum per cent. by weight, minimum',                           content: '1' },
+      { sno: '(v)',   ingredient: 'Bentonite (Roasted) per cent. by weight, minimum',                   content: 'QS' },
+      { sno: '(vi)',  ingredient: 'Total (per cent.)',                                                   content: '100' },
+    ],
+    specifications: [
+      { sno: '(i)',   parameter: 'Alginic acid content per cent. by weight, minimum',  value: '0.50' },
+      { sno: '(ii)',  parameter: 'Humic acid content per cent. by weight, minimum',    value: '0.40' },
+      { sno: '(iii)', parameter: 'pH (1% aqueous solution)',                            value: '9.0 – 11.0' },
+      { sno: '(iv)',  parameter: 'Solubility per cent. by weight, minimum',            value: '7' },
+      { sno: '(v)',   parameter: 'Total organic carbon per cent. by weight, minimum',  value: '2' },
+      { sno: '(vi)',  parameter: 'Bulk density (gram/cc)',                              value: '1.20 – 1.25' },
+    ],
+  },
+  {
     id: '16',
     slug: 'active-360',
     name: 'Active 360',

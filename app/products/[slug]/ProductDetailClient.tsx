@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, ArrowRight, CheckCircle, ChevronRight, Droplets, Leaf, MessageCircle, Package, Phone } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle, ChevronRight, Droplets, FileText, Leaf, MessageCircle, Package, Phone } from 'lucide-react';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import CtaSection from '@/components/sections/CtaSection';
 import { useLang } from '@/lib/i18n/LanguageContext';
@@ -91,6 +91,66 @@ export default function ProductDetailClient({ product, relatedProducts }: Produc
                 </div>
 
                 <p className="text-gray-600 leading-relaxed">{longDescription}</p>
+
+                {product.gazetteNo && (
+                  <div className="flex items-center gap-2 px-4 py-2.5 bg-primary-light border border-primary/20 rounded-xl text-sm">
+                    <FileText size={15} className="text-primary flex-shrink-0" />
+                    <span className="text-primary font-medium">Gazette No:</span>
+                    <span className="text-gray-700">{product.gazetteNo}</span>
+                  </div>
+                )}
+
+                {product.composition && product.composition.length > 0 && (
+                  <div>
+                    <h3 className="font-semibold text-dark-navy mb-3">Composition</h3>
+                    <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+                      <table className="w-full text-sm">
+                        <thead>
+                          <tr className="bg-primary text-white">
+                            <th className="px-3 py-2.5 text-left font-semibold w-14">S.No.</th>
+                            <th className="px-3 py-2.5 text-left font-semibold">Ingredients</th>
+                            <th className="px-3 py-2.5 text-center font-semibold w-20">Content</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {product.composition.map((row, i) => (
+                            <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-primary-light/40'}>
+                              <td className="px-3 py-2 text-gray-500">{row.sno}</td>
+                              <td className="px-3 py-2 text-gray-700 italic">{row.ingredient}</td>
+                              <td className="px-3 py-2 text-center font-semibold text-dark-navy">{row.content}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
+
+                {product.specifications && product.specifications.length > 0 && (
+                  <div>
+                    <h3 className="font-semibold text-dark-navy mb-3">Specifications</h3>
+                    <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+                      <table className="w-full text-sm">
+                        <thead>
+                          <tr className="bg-dark-navy text-white">
+                            <th className="px-3 py-2.5 text-left font-semibold w-14">S.No.</th>
+                            <th className="px-3 py-2.5 text-left font-semibold">Parameters</th>
+                            <th className="px-3 py-2.5 text-center font-semibold w-28">Value</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {product.specifications.map((row, i) => (
+                            <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                              <td className="px-3 py-2 text-gray-500">{row.sno}</td>
+                              <td className="px-3 py-2 text-gray-700">{row.parameter}</td>
+                              <td className="px-3 py-2 text-center font-semibold text-dark-navy">{row.value}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
 
                 <div>
                   <h3 className="font-semibold text-dark-navy mb-3 flex items-center gap-2">

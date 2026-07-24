@@ -1,3 +1,15 @@
+export interface CompositionRow {
+  sno: string;
+  ingredient: string;
+  content: string;
+}
+
+export interface SpecificationRow {
+  sno: string;
+  parameter: string;
+  value: string;
+}
+
 export interface Product {
   id: string;
   slug: string;
@@ -16,6 +28,9 @@ export interface Product {
   image: string;
   badge?: string;
   featured?: boolean;
+  gazetteNo?: string;
+  composition?: CompositionRow[];
+  specifications?: SpecificationRow[];
 }
 
 export interface Testimonial {
