@@ -351,6 +351,304 @@ export const products: Product[] = [
     image: '/images/products/sajnivini.jpeg'
   },
   {
+    id: '31',
+    slug: 'amino-gold-protein-hydrolysate',
+    name: 'Amino Gold — Protein Hydrolysate Amino Acid',
+    category: 'Bio Stimulant',
+    tagline: 'Gazette-Approved Protein Hydrolysate Amino Acid Bio-Stimulant',
+    description: 'A gazette-approved protein hydrolysate amino acid formulation registered under Government of India Gazette Notification CG-DL-E-14082025-265413.',
+    longDescription: 'Amino Gold is a premium protein hydrolysate amino acid bio-stimulant registered under Government of India Extraordinary Gazette Notification dated 13/08/2025. Derived from enzymatic hydrolysis of plant proteins, it provides crops with a complete spectrum of readily absorbable amino acids. These amino acids act as chelating agents for micronutrients, stimulate enzyme activity, enhance chlorophyll synthesis, and improve overall plant metabolism — resulting in faster growth, better flowering, and improved crop quality.',
+    benefits: [
+      'Gazette-approved formulation (CG-DL-E-14082025-265413)',
+      'Complete spectrum of protein hydrolysate amino acids',
+      'Acts as natural chelating agent for micronutrients',
+      'Stimulates enzyme activity and chlorophyll synthesis',
+      'Enhances flowering, fruiting, and crop quality',
+      'Improves nutrient uptake and plant metabolism'
+    ],
+    dosage: {
+      spray: '2 to 3 ml per liter',
+      drip: '500 ml to 1 liter per acre'
+    },
+    packaging: ['1 Liter'],
+    image: '/images/gallery/ProteinhydrolysateAminoacid.png',
+    badge: 'Gazette Approved',
+    gazetteNo: 'CG-DL-E-14082025-265413 | 13/08/2025',
+  },
+  {
+    id: '30',
+    slug: 'shiv-amrut-seaweed-18',
+    name: 'Shiv Amrut — Seaweed Extract 18.4%',
+    category: 'Bio Stimulant',
+    tagline: 'Gazette-Approved Seaweed (Ascophyllum nodosum) Extract 18.4%',
+    description: 'A gazette-approved bio-stimulant with 18.4% Seaweed (Ascophyllum nodosum) extract, registered under Government of India Gazette Notification CG-DL-E-14082025-265414.',
+    longDescription: 'Shiv Amrut Seaweed Extract 18.4% is a premium bio-stimulant derived from Ascophyllum nodosum seaweed, registered under Government of India Extraordinary Gazette Notification dated 13/08/2025. With 18.4% concentrated seaweed extract, it delivers a rich supply of natural cytokinins, auxins, gibberellins, betaines, mannitol, and essential micronutrients. It drives rapid plant cell division, accelerates overall crop development, enhances chlorophyll production, and significantly improves crop quality and yield.',
+    benefits: [
+      'Gazette-approved formulation (CG-DL-E-14082025-265414)',
+      '18.4% Ascophyllum nodosum seaweed extract',
+      'Rich in natural cytokinins, auxins and gibberellins',
+      'Stimulates rapid plant cell division',
+      'Accelerates crop development and chlorophyll production',
+      'Improves crop quality, yield and stress tolerance'
+    ],
+    dosage: {
+      spray: '1 to 2 ml per liter',
+      drip: '1 liter per acre'
+    },
+    packaging: ['1 Liter'],
+    image: '/images/gallery/Seaweed(Ascophyllumnodosum)extract18.4%.png',
+    badge: 'Gazette Approved',
+    gazetteNo: 'CG-DL-E-14082025-265414 | 13/08/2025',
+  },
+  {
+    id: '29',
+    slug: 'gloss-green-seaweed-humate',
+    name: 'Gloss Green — Seaweed, Potassium Humate & Protein Hydrolysate',
+    category: 'Crop Quality',
+    tagline: 'Gazette-Approved Seaweed, Potassium Humate & Protein Hydrolysate for Crop Shine',
+    description: 'A gazette-approved liquid formulation combining Seaweed extract, Potassium Humate, and Protein Hydrolysate, registered under Government of India Gazette Notification CG-DL-E-14082025-265414.',
+    longDescription: 'Gloss Green is a premium liquid formulation combining Seaweed extract, Potassium Humate, and Protein Hydrolysate, registered under Government of India Extraordinary Gazette Notification dated 13/08/2025. Specially formulated to enhance the visual quality and marketability of crops, it improves greening, glossiness, and firmness of produce. The seaweed extract stimulates natural growth hormones, potassium humate improves potassium availability for fruit development, and protein hydrolysate provides amino acids that enhance pigmentation and shine.',
+    benefits: [
+      'Gazette-approved formulation (CG-DL-E-14082025-265414)',
+      'Seaweed, Potassium Humate & Protein Hydrolysate blend',
+      'Enhances greening and glossy shine of produce',
+      'Improves potassium availability for fruit development',
+      'Amino acids from protein hydrolysate boost pigmentation',
+      'Controls premature fruit drop and promotes new flush'
+    ],
+    dosage: {
+      spray: '2 to 2.5 ml per liter',
+      drip: '500 ml to 1 liter per acre'
+    },
+    packaging: ['1 Liter'],
+    image: '/images/gallery/potassiumHumayeantproteinhydrolysate.png',
+    badge: 'Gazette Approved',
+    gazetteNo: 'CG-DL-E-14082025-265414 | 13/08/2025',
+  },
+  {
+    id: '28',
+    slug: 'bloom-seaweed-liquid',
+    name: 'Bloom — Seaweed, Humic, Fulvic, Amino & Vitamins',
+    category: 'Crop Quality',
+    tagline: 'Gazette-Approved Complete Liquid Tonic for Flowering & Fruiting',
+    description: 'A gazette-approved liquid formulation combining Seaweed extract, Humic acid, Fulvic acid, Amino acids, and Vitamins, registered under Government of India Gazette Notification CG-DL-E-28052025-263422.',
+    longDescription: 'Bloom is a premium complete liquid tonic combining Seaweed extract, Humic acid, Fulvic acid, Amino acids, and Vitamins, registered under Government of India Extraordinary Gazette Notification dated 26/05/2025. Specially designed to enhance flowering and fruiting stages, Bloom provides crops with a complete nutritional package that stimulates flower initiation, prevents premature drop, and improves fruit size and quality. The synergistic blend of all five active components ensures maximum absorption and visible results within days of application.',
+    benefits: [
+      'Gazette-approved formulation (CG-DL-E-28052025-263422)',
+      'Complete 5-in-1 liquid tonic for flowering stage',
+      'Stimulates flower initiation and retention',
+      'Prevents premature flower and fruit drop',
+      'Improves fruit size, colour, and quality',
+      'Rapid absorption via fulvic acid carrier'
+    ],
+    dosage: {
+      spray: '1 to 2.5 ml per liter',
+      drip: '1 liter per acre'
+    },
+    packaging: ['1 Liter'],
+    image: '/images/gallery/HumicFulvicacidAminoacidsVitamins.png',
+    badge: 'Gazette Approved',
+    gazetteNo: 'CG-DL-E-28052025-263422 | 26/05/2025',
+  },
+  {
+    id: '27',
+    slug: 'sanjivani-seaweed-liquid',
+    name: 'Sanjivani — Seaweed, Humic, Fulvic, Amino & Vitamins',
+    category: 'Soil Amendment',
+    tagline: 'Gazette-Approved Complete Liquid Tonic with Seaweed, Humic, Fulvic, Amino & Vitamins',
+    description: 'A gazette-approved liquid formulation combining Seaweed extract, Humic acid, Fulvic acid, Amino acids, and Vitamins, registered under Government of India Gazette Notification CG-DL-E-28052025-263422.',
+    longDescription: 'Sanjivani is a comprehensive liquid formulation combining Seaweed extract, Humic acid, Fulvic acid, Amino acids, and Vitamins, registered under Government of India Extraordinary Gazette Notification dated 26/05/2025. It comprehensively improves soil quality, replenishes nutrient deficiencies in plants, and helps crops grow vigorously. The seaweed component provides natural growth hormones, humic and fulvic acids restore soil health, amino acids accelerate plant metabolism, and vitamins boost immunity and stress tolerance.',
+    benefits: [
+      'Gazette-approved formulation (CG-DL-E-28052025-263422)',
+      'Complete 5-in-1 liquid tonic formulation',
+      'Seaweed extract provides natural growth hormones',
+      'Humic & fulvic acids restore soil health',
+      'Amino acids accelerate plant metabolism',
+      'Vitamins boost immunity and stress tolerance'
+    ],
+    dosage: {
+      spray: '1 to 2.5 ml per liter',
+      drip: '1 to 2 liters per acre'
+    },
+    packaging: ['2 Liter', '5 Liter'],
+    image: '/images/gallery/HumicandFulvicacidAminocidsVitamins.png',
+    badge: 'Gazette Approved',
+    gazetteNo: 'CG-DL-E-28052025-263422 | 26/05/2025',
+  },
+  {
+    id: '26',
+    slug: 'carbon-rich-humic-45',
+    name: 'Carbon Rich — Humic & Fulvic Acid 45.1%',
+    category: 'Soil Amendment',
+    tagline: 'Gazette-Approved High-Concentration Humic & Fulvic Acid 45.1%',
+    description: 'A gazette-approved premium formulation with 45.1% combined Humic and Fulvic acid content, registered under Government of India Gazette Notification CG-DL-E-14082025-265414.',
+    longDescription: 'Carbon Rich Humic & Fulvic Acid 45.1% is a high-concentration soil amendment registered under Government of India Extraordinary Gazette Notification dated 13/08/2025. With 45.1% active humic and fulvic acid content, it delivers exceptional soil conditioning results — developing deeper and wider root systems, improving soil porosity, and making NPK readily available to crops. The high carbon content significantly enhances soil organic matter, water retention capacity, and long-term soil health.',
+    benefits: [
+      'Gazette-approved formulation (CG-DL-E-14082025-265414)',
+      '45.1% high-concentration humic & fulvic acid',
+      'Develops deeper and wider root system',
+      'Makes NPK readily available to plants',
+      'Improves soil porosity and water retention',
+      'Significantly boosts soil organic carbon'
+    ],
+    dosage: {
+      spray: '1 gram per liter',
+      drip: '500 grams to 1 kg per acre'
+    },
+    packaging: ['500 gm', '1 Kg'],
+    image: '/images/gallery/Humicacidandfulvicacid45.1%.png',
+    badge: 'Gazette Approved',
+    gazetteNo: 'CG-DL-E-14082025-265414 | 13/08/2025',
+  },
+  {
+    id: '25',
+    slug: 'brix-plus-seaweed-liquid',
+    name: 'Brix Plus — Seaweed, Humic, Fulvic, Amino & Vitamins',
+    category: 'Crop Quality',
+    tagline: 'Gazette-Approved Complete Liquid Tonic with Seaweed, Humic, Fulvic, Amino & Vitamins',
+    description: 'A gazette-approved liquid formulation combining Seaweed extract, Humic acid, Fulvic acid, Amino acids, and Vitamins, registered under Government of India Gazette Notification CG-DL-E-28052025-263422.',
+    longDescription: 'Brix Plus is a comprehensive liquid tonic combining Seaweed extract, Humic acid, Fulvic acid, Amino acids, and Vitamins in a single premium formulation, registered under Government of India Extraordinary Gazette Notification dated 26/05/2025. This complete blend provides crops with everything needed for superior growth, quality, and yield. The seaweed extract supplies natural growth hormones, humic and fulvic acids condition the soil and enhance nutrient uptake, amino acids support protein synthesis, and vitamins boost plant metabolism and stress tolerance.',
+    benefits: [
+      'Gazette-approved formulation (CG-DL-E-28052025-263422)',
+      'Complete 5-in-1 liquid tonic formulation',
+      'Seaweed extract supplies natural growth hormones',
+      'Humic & fulvic acids enhance nutrient uptake',
+      'Amino acids support protein synthesis',
+      'Vitamins boost metabolism and stress tolerance'
+    ],
+    dosage: {
+      spray: '1 to 2.5 ml per liter',
+      drip: '1 liter per acre'
+    },
+    packaging: ['1 Liter'],
+    image: '/images/gallery/HumicFulvicacidAminoacidsandVitamins(Liquid).png',
+    badge: 'Gazette Approved',
+    gazetteNo: 'CG-DL-E-28052025-263422 | 26/05/2025',
+  },
+  {
+    id: '24',
+    slug: 'armor-protein-amino-20',
+    name: 'Armor — Protein Hydrolysate Amino Acid 20%',
+    category: 'Bio Stimulant',
+    tagline: 'Gazette-Approved Protein Hydrolysate Amino Acid 20% Formulation',
+    description: 'A gazette-approved protein hydrolysate amino acid formulation with 20% active content, registered under Government of India Gazette Notification CG-DL-E-28052025-263422.',
+    longDescription: 'Armor Protein Hydrolysate Amino Acid 20% is a premium bio-stimulant derived from enzymatic hydrolysis of plant proteins, registered under Government of India Extraordinary Gazette Notification dated 26/05/2025. With 20% amino acid content from protein hydrolysate, it provides crops with readily absorbable nitrogen and stress-protective compounds. It helps crops withstand extreme temperature changes, heat stress, drought, and cold conditions while increasing resistance against insect and mite attacks.',
+    benefits: [
+      'Gazette-approved formulation (CG-DL-E-28052025-263422)',
+      '20% protein hydrolysate amino acid content',
+      'Derived from enzymatic protein hydrolysis',
+      'Protects crops from heat, drought, and cold stress',
+      'Increases resistance to insects and mites',
+      'Improves overall crop quality and yield'
+    ],
+    dosage: {
+      spray: '2 to 3 ml per liter',
+      drip: '1 to 2 liters per acre'
+    },
+    packaging: ['1 Liter'],
+    image: '/images/gallery/ProteinhydrolysateAminoacid20%.png',
+    badge: 'Gazette Approved',
+    gazetteNo: 'CG-DL-E-28052025-263422 | 26/05/2025',
+  },
+  {
+    id: '23',
+    slug: 'sudarshan-adhatoda',
+    name: 'Sudarshan — Adhatoda vasica 2%',
+    category: 'Bio Pesticide',
+    tagline: 'Gazette-Approved Adhatoda vasica Extract 2% Bio-Pesticide',
+    description: 'A gazette-approved botanical bio-pesticide with 2% Adhatoda vasica extract, registered under Government of India Gazette Notification CG-DL-E-28052025-263422.',
+    longDescription: 'Sudarshan Adhatoda vasica 2% is a potent botanical bio-pesticide derived from Adhatoda vasica (Malabar nut) plant extract, registered under Government of India Extraordinary Gazette Notification dated 26/05/2025. The active alkaloids vasicine and vasicinone act as powerful anti-feedants and repellents, disrupting the feeding and reproductive cycles of plant-eating insects like aphids, semi-loopers, and grasshoppers. Its natural botanical origin ensures no harmful residues on produce and complete safety for beneficial insects and the environment.',
+    benefits: [
+      'Gazette-approved formulation (CG-DL-E-28052025-263422)',
+      '2% Adhatoda vasica (Malabar nut) extract',
+      'Powerful anti-feedant and repellent action',
+      'Controls aphids, semi-looper, grasshoppers',
+      'No harmful chemical residues on produce',
+      'Safe for beneficial insects and environment'
+    ],
+    dosage: {
+      spray: '2 to 2.5 ml per liter'
+    },
+    packaging: ['100 ml', '250 ml', '500 ml'],
+    image: '/images/gallery/Adhatodavasicaextract2%.png',
+    badge: 'Gazette Approved',
+    gazetteNo: 'CG-DL-E-28052025-263422 | 26/05/2025',
+  },
+  {
+    id: '22',
+    slug: 'soya-maxx-humic-19',
+    name: 'Soya MaXx — Humic & Fulvic 19.5%',
+    category: 'Crop Specific',
+    tagline: 'Gazette-Approved Humic & Fulvic Acid 19.5% for Soybean',
+    description: 'A gazette-approved liquid formulation with 19.5% combined Humic and Fulvic acid content, registered under Government of India Gazette Notification CG-DL-E-14082025-265413.',
+    longDescription: 'Soya MaXx Humic & Fulvic 19.5% is a high-concentration liquid formulation combining Humic acid and Fulvic acid at 19.5% active content, registered under Government of India Extraordinary Gazette Notification dated 13/08/2025. Specially formulated for soybean cultivation, it improves root architecture, enhances nutrient uptake, and controls premature flower drop. The fulvic acid component ensures rapid penetration into plant tissues while humic acid conditions the soil for optimal nutrient availability.',
+    benefits: [
+      'Gazette-approved formulation (CG-DL-E-14082025-265413)',
+      '19.5% combined humic & fulvic acid content',
+      'Optimized for soybean crop performance',
+      'Controls premature flower and pod drop',
+      'Rapid penetration via fulvic acid carrier',
+      'Improves root architecture and nutrient uptake'
+    ],
+    dosage: {
+      spray: '2 to 2.5 ml per liter',
+      drip: '1 liter per acre'
+    },
+    packaging: ['1 Liter'],
+    image: '/images/gallery/Humicacidandfulvicacid19.5% .png',
+    badge: 'Gazette Approved',
+    gazetteNo: 'CG-DL-E-14082025-265413 | 13/08/2025',
+  },
+  {
+    id: '21',
+    slug: 'matrix-9-amino-14',
+    name: 'Matrix 9 — Amino Acid 14%',
+    category: 'Bio Stimulant',
+    tagline: 'Gazette-Approved Amino Acid 14% Liquid Formulation',
+    description: 'A gazette-approved amino acid formulation with 14% active content, registered under Government of India Gazette Notification CG-DL-E-14082025-265414.',
+    longDescription: 'Matrix 9 Amino Acid 14% is a concentrated amino acid liquid formulation registered under Government of India Extraordinary Gazette Notification dated 13/08/2025. With 14% amino acid content, it provides plants with readily available building blocks for protein synthesis, enzyme production, and stress response. It accelerates vegetative growth, improves photosynthesis efficiency, and enhances overall crop performance across all growth stages.',
+    benefits: [
+      'Gazette-approved formulation (CG-DL-E-14082025-265414)',
+      '14% concentrated amino acid content',
+      'Ready-made protein building blocks for plants',
+      'Accelerates vegetative growth and flowering',
+      'Improves photosynthesis and enzyme activity',
+      'Enhances crop performance under stress'
+    ],
+    dosage: {
+      spray: '2 to 3 ml per liter',
+      drip: '500 ml to 1 liter per acre'
+    },
+    packaging: ['1 Liter'],
+    image: '/images/gallery/AminoAcid14%.png',
+    badge: 'Gazette Approved',
+    gazetteNo: 'CG-DL-E-14082025-265414 | 13/08/2025',
+  },
+  {
+    id: '20',
+    slug: 'kavach-adhatoda',
+    name: 'Kavach — Adhatoda vasica 2%',
+    category: 'Bio Pesticide',
+    tagline: 'Gazette-Approved Adhatoda vasica Extract 2% Bio-Pesticide',
+    description: 'A gazette-approved botanical bio-pesticide with 2% Adhatoda vasica extract, registered under Government of India Gazette Notification CG-DL-E-14082025-265413.',
+    longDescription: 'Kavach Adhatoda vasica 2% is a potent botanical bio-pesticide derived from Adhatoda vasica (Malabar nut) plant extract, registered under Government of India Extraordinary Gazette Notification dated 13/08/2025. Adhatoda vasica contains alkaloids like vasicine and vasicinone that disrupt the nervous and digestive systems of sucking and chewing insects. This natural formulation provides effective crop protection without harmful chemical residues, making it safe for humans, beneficial insects, and the environment.',
+    benefits: [
+      'Gazette-approved formulation (CG-DL-E-14082025-265413)',
+      '2% Adhatoda vasica (Malabar nut) extract',
+      'Controls sucking and chewing insects naturally',
+      'Contains vasicine and vasicinone alkaloids',
+      'No harmful chemical residues on produce',
+      'Safe for beneficial insects and environment'
+    ],
+    dosage: {
+      spray: '1 to 2.5 ml per liter'
+    },
+    packaging: ['100 ml', '250 ml', '500 ml'],
+    image: '/images/gallery/Adhatodavasicaextract2%.png',
+    badge: 'Gazette Approved',
+    gazetteNo: 'CG-DL-E-14082025-265413 | 13/08/2025',
+  },
+  {
     id: '19',
     slug: 'humex-plus-granule',
     name: 'HumeX+ Granule',
@@ -395,7 +693,7 @@ export const products: Product[] = [
       drip: '500 grams to 1 kg per acre'
     },
     packaging: ['500 gm', '1 Kg'],
-    image: '/images/gallery/Humex.png',
+    image: '/images/gallery/Humicandfulvicacid76%.png',
     badge: 'Gazette Approved',
     gazetteNo: 'CG-DL-E-28052025-263422 | 26/05/2025',
   },
