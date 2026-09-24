@@ -351,6 +351,31 @@ export const products: Product[] = [
     image: '/images/products/sajnivini.jpeg'
   },
   {
+    id: '32',
+    slug: 'fix-humic-fulvic',
+    name: 'Fix — Humic & Fulvic Acid',
+    category: 'Soil Amendment',
+    tagline: 'Gazette-Approved Humic & Fulvic Acid Liquid Formulation',
+    description: 'A gazette-approved liquid formulation of Humic and Fulvic acid registered under Government of India Gazette Notification CG-DL-E-14082025-265412.',
+    longDescription: 'Fix is a premium liquid formulation of Humic and Fulvic acid by Shiv Biotech, registered under Government of India Extraordinary Gazette Notification CG-DL-E-14082025-265412 dated 13/08/2025 (Part II—Sec. 3(ii)). It improves soil organic carbon, enhances cation exchange capacity, stimulates root development, and ensures better nutrient absorption. The synergistic action of humic and fulvic acids works at the soil-root interface to unlock bound nutrients and deliver them directly to plants.',
+    benefits: [
+      'Gazette-approved formulation (CG-DL-E-14082025-265412)',
+      'Premium combination of humic and fulvic acid',
+      'Improves soil organic carbon and structure',
+      'Enhances cation exchange capacity (CEC)',
+      'Stimulates root development and nutrient uptake',
+      'Balances soil pH and promotes microbial activity'
+    ],
+    dosage: {
+      spray: '2 to 3 ml per liter',
+      drip: '500 ml to 1 liter per acre'
+    },
+    packaging: ['1 Liter'],
+    image: '/images/gallery/Humicandfulvic.png',
+    badge: 'Gazette Approved',
+    gazetteNo: 'CG-DL-E-14082025-265412 | 13/08/2025',
+  },
+  {
     id: '31',
     slug: 'amino-gold-protein-hydrolysate',
     name: 'Amino Gold — Protein Hydrolysate Amino Acid',
